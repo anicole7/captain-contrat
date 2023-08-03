@@ -1,0 +1,7 @@
+<h3>Create a Champion</h3>
+<%= form_with model: @champion do |form| %>
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.number_field :health_point, in: 70..100, placeholder: "health_point" %>
+  <%= form.number_field :attack_point, in: 5..15, placeholder: "attack_point" %>
+  <%= form.submit %>
+<% end %>

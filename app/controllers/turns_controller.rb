@@ -35,6 +35,6 @@ class TurnsController < ApplicationController
   end
 
   def turn_params
-    params.require(:turn).permit(:number, :damage, :oponent_health_remaining, fight_id)
+    params.require(:turn).permit(:number, :damage, :oponent_health_remaining, :fight_id)
   end
 end

@@ -7,11 +7,19 @@ class ChampionsController < ApplicationController
   
   def show
   end
+
+  def new
+    @champion = Champion.new
+  end
   
   def create
-    @champion = Champion.create(champion_params)
-  
-    redirect_to champions_path
+    champion = Champion.new(champion_params)
+
+    if champion.save
+      redirect_to champions_path
+    else
+      redirect_to root
+    end
   end
   
   def update
@@ -34,6 +42,6 @@ class ChampionsController < ApplicationController
   end
   
   def champion_params
-    params.require(:champion).permit(:name, :health_point, :attack_point, left_weapon_id, right_weapon_id)
+    params.require(:champion).permit(:name, :health_point, :attack_point, :left_weapon_id, :right_weapon_id)
   end
 end

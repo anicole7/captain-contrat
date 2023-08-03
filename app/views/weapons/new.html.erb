@@ -1,0 +1,8 @@
+<h3>Create a Weapon</h3>
+<%= form_with model: @weapon do |form| %>
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.number_field :defensive, in: 0..1, placeholder: "defensive" %>
+  <%= form.number_field :weight, in: 0..1, placeholder: "weight" %>
+  <%= form.number_field :stats_bonus, in: 1..20, placeholder: "stats_bonus" %>
+  <%= form.submit %>
+<% end %>

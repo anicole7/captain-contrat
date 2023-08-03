@@ -7,11 +7,19 @@ class WeaponsController < ApplicationController
   
   def show
   end
+
+  def new
+    @weapon = Weapon.new
+  end
   
   def create
-    @weapon = Weapon.create(weapon_params)
-  
-    redirect_to weapons_path
+    weapon = Weapon.new(weapon_params)
+
+    if weapon.save
+      redirect_to weapons_path
+    else
+      redirect_to root
+    end
   end
   
   def update
@@ -34,6 +42,6 @@ class WeaponsController < ApplicationController
   end
   
   def weapon_params
-    params.require(:weapon).permit(:name, :defensive, :weight, stats_bonus)
+    params.require(:weapon).permit(:name, :defensive, :weight, :stats_bonus)
   end
 end

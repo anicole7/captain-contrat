@@ -33,8 +33,8 @@ import ButtonCounter from '../components/ButtonCounter.vue'
 import ActionButton from '../components/ActionButton.vue'  
   
 const app = createApp({  
-  data() {  
-    return {  
+  data() {
+    return {
       course: 'Intro to Vue 3 and Rails'  
     }  
   }  
