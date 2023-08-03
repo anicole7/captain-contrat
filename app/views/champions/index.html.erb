@@ -1,0 +1,5 @@
+<ul>
+  <% @champions.each do |champion| %>
+    <li><%= link_to champion.name, champion_path(champion) %></li>
+  <% end %>
+</ul>

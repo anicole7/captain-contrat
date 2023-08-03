@@ -28,8 +28,9 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 // import '~/index.css'
 
 import { createApp } from 'vue/dist/vue.esm-bundler';  
-  
+
 import ButtonCounter from '../components/ButtonCounter.vue'  
+import ActionButton from '../components/ActionButton.vue'  
   
 const app = createApp({  
   data() {  
@@ -40,6 +41,7 @@ const app = createApp({
 })  
   
 app.component('ButtonCounter', ButtonCounter)  
+app.component('ActionButton', ActionButton)  
   
 app.mount('#app');  
 // (optional) for debug purpose  

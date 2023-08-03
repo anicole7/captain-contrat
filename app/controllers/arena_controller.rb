@@ -1,0 +1,2 @@
+class ArenaController < ApplicationController
+end
