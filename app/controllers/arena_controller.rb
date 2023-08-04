@@ -3,8 +3,10 @@ class ArenaController < ApplicationController
         @champions = Champion.all
         @weapons = Weapon.all
 
-        @champion_1_init_id = @champions.random(0).id
-        @champion_2_init_id = @champions.random(@champion_1_init_id).id
+        if @champions.exists?
+            @champion_1_init_id = @champions.random(0).id
+            @champion_2_init_id = @champions.random(@champion_1_init_id).id
+        end
     end
 
     def show

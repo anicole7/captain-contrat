@@ -52,3 +52,8 @@ body {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
+input {
+    min-width: 150px;
+    margin-left: 10px;
+}
