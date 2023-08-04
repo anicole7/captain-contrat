@@ -1,17 +1,71 @@
 <div>
-  <div>
-    <h1>Champion, bienvenue dans l'arène</h1> 
+  <div class="title">
+    <h1>Héros, bienvenue dans l'arène</h1>
+    <h3>Choisissez deux champions, équippez les des meilleurs armes possibles et faites les s'affonter jusqu'à la mort !</h3> 
+    <h5>Petite précision, il est uniquement possible d'équiper deux armes à une main, ou une arme à deux mains.</h5>
+    <h9>PS : Garrosh étant censé pouvoir porter deux armes à deux mains (incroyable mais vrai) on glissera un petit correctif d'ici quelques patchs</h9>
   </div>
-  <div> 
-    <h2>Menu</h2>
-    <ul>
-      <li><%= link_to "Liste des champions", champions_path %></li>
-      <li><%= link_to "Liste des armes", weapons_path %></li>
-      <li>Historique des combats</li>
-    </ul>
+  
+  <div id="arena"> 
+    <div id="champion_1_section">
+      <select name="champion_1_id">
+        <option value=""></option>
+        <% @champions.each do |champion| %>
+          <% if champion.id == @champion_1_init_id %>
+            <option value="<%= champion.id %>" selected="selected"><%= champion.name %></option>
+          <% else %>
+            <option value="<%= champion.id %>"><%= champion.name %></option>
+          <% end %>
+        <% end %>
+      </select>
+
+      <select name="champion_1_weapon_1_id">
+        <option value="0">Arme 1</option>
+        <% @weapons.each do |weapon| %>
+          <option data-weight="<%= weapon.weight %>" value="<%= weapon.id %>"><%= weapon.name %></option>
+        <% end %>
+      </select>
+
+      <select name="champion_1_weapon_2_id" disabled>
+        <option value="0">Arme 2</option>
+        <% @weapons.light.each do |weapon| %>
+          <option data-weight="<%= weapon.weight %>" value="<%= weapon.id %>"><%= weapon.name %></option>
+        <% end %>
+      </select>
+    </div>
+    
+    <div id="score_section">
+    <button id="start_fight">Fight</button>
+
+    </div>
+
+    <div id="champion_1_section">
+      <select name="champion_2_id">
+        <option value=""></option>
+        <% @champions.each do |champion| %>
+          <% if champion.id == @champion_2_init_id %>
+            <option value="<%= champion.id %>" selected="selected"><%= champion.name %></option>
+          <% else %>
+            <option value="<%= champion.id %>"><%= champion.name %></option>
+          <% end %>
+        <% end %>
+      </select>
+
+      <select name="champion_2_weapon_1_id">
+        <option value="0">Arme 1</option>
+        <% @weapons.each do |weapon| %>
+          <option data-weight="<%= weapon.weight %>" value="<%= weapon.id %>"><%= weapon.name %></option>
+        <% end %>
+      </select>
+
+      <select name="champion_2_weapon_2_id" disabled>
+        <option value="0">Arme 2</option>
+        <% @weapons.light.each do |weapon| %>
+          <option data-weight="<%= weapon.weight %>" value="<%= weapon.id %>"><%= weapon.name %></option>
+        <% end %>
+      </select>
+    </div>
   </div>
+
+  <div id="fight_stats"></div>
 </div>
-
-
-
-

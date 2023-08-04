@@ -30,10 +30,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_141925) do
     t.datetime "date"
     t.bigint "champion_1_id"
     t.bigint "champion_2_id"
+    t.bigint "winner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["champion_1_id"], name: "index_fights_on_champion_1_id"
     t.index ["champion_2_id"], name: "index_fights_on_champion_2_id"
+    t.index ["winner_id"], name: "index_fights_on_winner_id"
   end
 
   create_table "turns", force: :cascade do |t|
@@ -41,8 +43,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_141925) do
     t.integer "damage"
     t.integer "oponent_health_remaining"
     t.bigint "fight_id"
+    t.bigint "champion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["champion_id"], name: "index_turns_on_champion_id"
     t.index ["fight_id"], name: "index_turns_on_fight_id"
   end
 
@@ -59,5 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_02_141925) do
   add_foreign_key "champions", "weapons", column: "right_weapon_id"
   add_foreign_key "fights", "champions", column: "champion_1_id"
   add_foreign_key "fights", "champions", column: "champion_2_id"
+  add_foreign_key "fights", "champions", column: "winner_id"
+  add_foreign_key "turns", "champions"
   add_foreign_key "turns", "fights"
 end

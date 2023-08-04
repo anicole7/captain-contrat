@@ -4,6 +4,7 @@ class CreateFights < ActiveRecord::Migration[7.0]
       t.datetime :date
       t.references :champion_1, index: true, foreign_key: {to_table: :champions}
       t.references :champion_2, index: true, foreign_key: {to_table: :champions}
+      t.references :winner, index: true, null: true, foreign_key: {to_table: :champions}
 
       t.timestamps
     end

@@ -7,8 +7,11 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "app" %>
+
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
+    <%= vite_javascript_tag 'arena_index' %>
     <!--
       If using a TypeScript entrypoint file:
         vite_typescript_tag 'application'
@@ -19,7 +22,18 @@
       Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
     -->
 
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_importmap_tags %>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
   </head>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="<%= root_path %>">Arène</a>
+    <a class="navbar-brand" href="<%= champions_path %>">Champions</a>
+    <a class="navbar-brand" href="<%= weapons_path %>">Armes</a>
+    <a class="navbar-brand" href="<%= fights_path %>">Historique</a>
+  </nav>
 
   <body id="app">
     <%= yield %>

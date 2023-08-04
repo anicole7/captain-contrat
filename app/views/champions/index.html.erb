@@ -1,5 +1,3 @@
-<%= button_to "Back", root_path, method: "get" %>
-
 <ul>
   <% @champions.each do |champion| %>
     <li><%= link_to champion.name, champion_path(champion) %></li>

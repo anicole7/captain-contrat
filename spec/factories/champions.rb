@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :champion do
-    Name { "MyString" }
-    HealthPoint { 1 }
-    AttackPoint { 1 }
+    sequence(:name) { |i| "Champion#{i}" }
+    HealthPoint { 100 }
+    sequence(:attackPoint) { |i| i * 10 }
   end
 end

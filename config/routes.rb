@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  get "arena/index"
   root to: "arena#index"
 
   resources :weapons
   resources :champions
-  resources :fights
   resources :turns
+  resources :fights
+
+  resources :arena do
+    member do
+    end
+
+    collection do
+      get 'fight'
+    end
+  end
 end

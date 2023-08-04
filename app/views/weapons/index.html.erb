@@ -1,5 +1,3 @@
-<%= button_to "Back", root_path, method: "get" %>
-
 <ul>
   <% @weapons.each do |weapon| %>
     <li><%= link_to weapon.name, weapon_path(weapon) %></li>

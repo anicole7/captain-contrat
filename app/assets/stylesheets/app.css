@@ -1,0 +1,54 @@
+#app > div {
+    padding: 10px;
+}
+
+body {
+    padding-left: 10px
+}
+
+.title {
+    margin-bottom: 50px;
+}
+
+.title > h1 {
+    text-align: center;
+}
+
+#arena {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+#arena > div {
+    flex-grow: 1;
+    text-align: center;
+    height: 300px;
+}
+
+#arena > div:nth-child(2) {
+    background-image: url('pokemon_stadium.jpg');
+    background-repeat: no-repeat;
+    width: 420px;
+}
+
+#fight_stats {
+    margin: 0 auto;
+    width: 700px;
+}
+
+#score_section {
+    position: relative;
+}
+
+#score_section > button {
+    background-color: blue;
+    color: white;
+    border-radius: 2px;
+    text-decoration: none;
+    margin: 0;
+    position: absolute;
+    padding: 5px 3px;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

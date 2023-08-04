@@ -1,0 +1,10 @@
+<ul>
+  <% @fights.each do |f| %>
+    <% title = "Fight number #{f.id} opposing #{Champion.find(f.champion_1_id).name} to #{Champion.find(f.champion_2_id).name}" %>
+    <% title += " winner : #{Champion.find(f.winner_id).name}" %>
+
+    <li>
+      <%= link_to(title, fight_path(f)) %>
+    </li>
+  <% end %>
+</ul>

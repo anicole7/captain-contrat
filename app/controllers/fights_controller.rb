@@ -6,6 +6,11 @@ class FightsController < ApplicationController
   end
 
   def show
+    @winner = Champion.find(@fight.winner_id)
+    @looser = Champion.find(
+        @fight.winner_id == @fight.champion_1_id ? @fight.champion_2_id : @fight.champion_1_id
+    )
+    @turns_count = @fight.turns.count
   end
 
   def create

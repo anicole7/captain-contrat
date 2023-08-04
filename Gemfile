@@ -13,7 +13,8 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 
 gem 'vite_rails'  
-
+gem 'bootstrap', '~> 5.3.0.alpha3'
+gem 'jquery-rails'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -34,3 +35,9 @@ group :development do
   # gem "spring"
 end
 
+
+gem "cssbundling-rails", "~> 1.2"
+
+gem "jsbundling-rails", "~> 1.1"
+
+gem "importmap-rails", "~> 1.2"
